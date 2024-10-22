@@ -1,24 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Sidebar from './components/Sidebar';
+import AuditFormPage from './pages/AuditFormPage';
+import DashboardPage from './pages/DashboardPage.js';
+import ComparisonPage from './pages/ComparisonPage';
+import ReportPage from './pages/AuditReportPage.js';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="flex">
+        <Sidebar />
+        <div className="flex-grow p-6 bg-gray-100">
+          <Routes>
+            <Route path="/" element={<AuditFormPage />} />
+            <Route path="/dashboard" element={<DashboardPage />} />
+            <Route path="/comparison" element={<ComparisonPage />} />
+            <Route path="/report" element={<ReportPage />} />
+          </Routes>
+        </div>
+      </div>
+    </Router>
   );
 }
 
