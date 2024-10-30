@@ -46,7 +46,17 @@ function AuditReportPage() {
   };
 
   if (audits.length === 0) {
-    return <p>No hay auditorías disponibles para generar un informe.</p>;
+    return(
+      <div className="flex justify-center items-center h-screen">
+        <div className="bg-white p-6 rounded-lg shadow-lg text-center max-w-md">
+          <i className="pi pi-exclamation-triangle text-5xl text-yellow-500 mb-4"></i>
+          <h2 className="text-xl font-bold mb-2">Atención</h2>
+          <p className="text-gray-700 text-lg">
+            No hay auditorías disponibles para generar un informe.
+          </p>
+        </div>
+      </div>
+    )
   }
 
   const currentAudit = audits[audits.length - 1];
