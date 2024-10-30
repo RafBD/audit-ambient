@@ -1,30 +1,55 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import 'primeicons/primeicons.css'; // Importa los íconos de PrimeIcons
 
 function Sidebar() {
+  const [isOpen, setIsOpen] = useState(true); // Estado para controlar la apertura del sidebar
+
   return (
-    <div className="w-64 bg-[#42855b] text-white min-h-screen">
-      <div className="p-6">
-        <h1 className="text-2xl font-bold">Eco-System Tracker</h1>
+    <div className={`bg-[#42855b] text-white min-h-screen transition-all duration-300 ${isOpen ? 'w-64' : 'w-16'}`}>
+      <div className={`flex pt-5 ${isOpen ? 'justify-end pr-5' : 'justify-center'}`}>
+        <button onClick={() => setIsOpen(!isOpen)} className={`text-white flex items-center ${isOpen ? 'justify-end' : 'justify-center'} w-full`}>
+          <i className={`pi ${isOpen ? 'pi-angle-left' : 'pi-angle-right'} text-xl`}></i>
+        </button>
       </div>
+      <h1 className={`text-2xl pb-5 font-bold transition-all duration-300 text-center ${isOpen ? 'opacity-100 h-auto' : 'opacity-0 h-0 overflow-hidden'} ease-in-out`}>
+        Eco-System Tracker
+      </h1>
       <nav>
-        <ul>
-          <Link to="/" className="p-4 hover:bg-[#37734d] flex items-center">
-            <i className="pi pi-pencil mr-2"></i>
-            Rellenar Auditoría
-          </Link>
-          <Link to="/dashboard" className="p-4 hover:bg-[#37734d] flex items-center">
-            <i className="pi pi-chart-line mr-2"></i>
-            Ver Dashboard
-          </Link>
-          <Link to="/comparison" className="p-4 hover:bg-[#37734d] flex items-center">
-            <i className="pi pi-sync mr-2"></i>
-            Comparación de Auditorías
-          </Link>
-          <Link to="/report" className="p-4 hover:bg-[#37734d] flex items-center">
-            <i className="pi pi-file mr-2"></i>
-            Informe
-          </Link>
+        <ul className='flex flex-col gap-2'>
+          {/** Elementos de navegación con alineación consistente */}
+          <li className="flex items-center p-4 text-center hover:bg-[#37734d]">
+            <Link to="/" className={`flex items-center ${isOpen ? 'justify-start' : 'justify-center'} w-full`}>
+              <i className={`pi pi-pencil ${isOpen ? 'mr-3' : ''} text-base`}></i>
+              <span className={`transition-all duration-300 ${isOpen ? 'opacity-100 h-auto' : 'opacity-0 h-0 overflow-hidden'} ease-in-out`}>
+                Rellenar Auditoría
+              </span>
+            </Link>
+          </li>
+          <li className="flex items-center p-4 hover:bg-[#37734d]">
+            <Link to="/dashboard" className={`flex items-center ${isOpen ? 'justify-start' : 'justify-center'} w-full`}>
+              <i className={`pi pi-chart-line ${isOpen ? 'mr-3' : ''} text-base`}></i>
+              <span className={`transition-all duration-300 ${isOpen ? 'opacity-100 h-auto' : 'opacity-0 h-0 overflow-hidden'} ease-in-out`}>
+                Ver Dashboard
+              </span>
+            </Link>
+          </li>
+          <li className="flex items-center p-4 hover:bg-[#37734d]">
+            <Link to="/comparison" className={`flex items-center ${isOpen ? 'justify-start' : 'justify-center'} w-full`}>
+              <i className={`pi pi-sync ${isOpen ? 'mr-3' : ''} text-base`}></i>
+              <span className={`transition-all duration-300 ${isOpen ? 'opacity-100 h-auto' : 'opacity-0 h-0 overflow-hidden'} ease-in-out`}>
+                Comparación de Auditorías
+              </span>
+            </Link>
+          </li>
+          <li className="flex items-center p-4 hover:bg-[#37734d]">
+            <Link to="/report" className={`flex items-center ${isOpen ? 'justify-start' : 'justify-center'} w-full`}>
+              <i className={`pi pi-file ${isOpen ? 'mr-3' : ''} text-base`}></i>
+              <span className={`transition-all duration-300 ${isOpen ? 'opacity-100 h-auto' : 'opacity-0 h-0 overflow-hidden'} ease-in-out`}>
+                Informe
+              </span>
+            </Link>
+          </li>
         </ul>
       </nav>
     </div>
