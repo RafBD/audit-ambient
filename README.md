@@ -1,70 +1,68 @@
-# Getting Started with Create React App
+# Audit Ambient
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**Audit Ambient** es una aplicación web diseñada para gestionar auditorías ambientales de manera eficiente. Permite a los usuarios llenar formularios de auditoría, visualizar los datos mediante gráficos interactivos, comparar auditorías pasadas y generar informes PDF para su análisis y presentación.
 
-## Available Scripts
+## Características
 
-In the project directory, you can run:
+- **Formulario de Auditoría**: Rellena y guarda las auditorías ambientales.
+- **Dashboard Interactivo**: Visualiza gráficos con datos de las auditorías de forma clara y precisa.
+- **Comparación de Auditorías**: Compara diferentes auditorías para obtener información útil sobre el desempeño ambiental.
+- **Generación de Informes**: Crea informes en formato PDF a partir de los datos de las auditorías.
+- **Diseño Responsivo**: La aplicación es completamente funcional tanto en dispositivos de escritorio como móviles.
 
-### `npm start`
+## Tecnologías
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **React**: Librería JavaScript para la construcción de interfaces de usuario.
+- **TailwindCSS**: Framework CSS para el diseño responsivo y la personalización del estilo.
+- **Chart.js**: Librería para crear gráficos interactivos y visualizaciones de datos.
+- **PrimeReact**: Librería de componentes React de interfaz de usuario con diseño moderno.
+- **jsPDF & jsPDF-AutoTable**: Herramientas para la creación de archivos PDF y tablas en los informes generados.
+- **React Router DOM**: Manejo de rutas para la navegación entre vistas en la aplicación.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Instalación
 
-### `npm test`
+### Requisitos previos
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Antes de comenzar, asegúrate de tener instalado [Node.js](https://nodejs.org/) en tu sistema.
 
-### `npm run build`
+### Pasos para configurar el proyecto
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. Clona el repositorio:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+   ```bash
+   git clone https://github.com/tu-usuario/audit-ambient.git
+   ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+2. Navega al directorio del proyecto:
 
-### `npm run eject`
+   ```bash
+   cd audit-ambient
+   ```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+3. Instala las dependencias:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+   ```bash
+   npm install
+   ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+4. Inicia la aplicación en modo de desarrollo:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+   ```bash
+   npm start
+   ```
 
-## Learn More
+   Esto abrirá la aplicación en `http://localhost:3000`.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Scripts disponibles
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- `npm start`: Inicia la aplicación en modo de desarrollo.
+- `npm run build`: Crea una versión optimizada de producción de la aplicación.
+- `npm test`: Ejecuta los tests de la aplicación.
+- `npm run eject`: Eyecta la configuración de `react-scripts` para una personalización avanzada.
 
-### Code Splitting
+## Uso
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+1. **Llenar Auditoría**: Accede a la sección de "Rellenar Auditoría" para completar los formularios.
+2. **Ver Dashboard**: Visualiza los datos de las auditorías en gráficos interactivos.
+3. **Comparar Auditorías**: Compara datos de auditorías previas para analizar el progreso.
+4. **Generar Informes**: Crea y descarga informes en formato PDF con los datos de las auditorías.
