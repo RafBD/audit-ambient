@@ -3,7 +3,6 @@ import { Chart } from 'primereact/chart';
 
 function ComparisonPage() {
   const [audits, setAudits] = useState([]);
-  const [auditResult, setAuditResult] = useState({ passed: false, message: '' });
 
   useEffect(() => {
     const storedAudits = JSON.parse(localStorage.getItem('audits')) || [];
@@ -21,7 +20,7 @@ function ComparisonPage() {
       energyLimit: 50000,
       wasteLimit: 10000,
       waterUsageLimit: 500000,
-      materialUsageLimit: 1000,
+      materialsUsageLimit: 1000,
       ghgLimit: 1500,
       renewableEnergyMin: 35
     };
@@ -30,15 +29,13 @@ function ComparisonPage() {
                    audit.energy <= parameters.energyLimit &&
                    audit.waste <= parameters.wasteLimit &&
                    audit.waterUsage <= parameters.waterUsageLimit &&
-                   audit.materialUsage <= parameters.materialUsageLimit &&
+                   audit.materialsUsage <= parameters.materialsUsageLimit &&
                    audit.ghgEmissions <= parameters.ghgLimit &&
                    audit.renewableEnergy >= parameters.renewableEnergyMin;
 
     const message = passed
       ? 'La empresa ha aprobado la auditoría ambiental.'
       : 'La empresa no ha aprobado la auditoría ambiental.';
-
-    setAuditResult({ passed, message });
   };
 
   if (audits.length < 2) {
@@ -86,7 +83,7 @@ function ComparisonPage() {
       },
       {
         label: 'Uso de Materiales (toneladas)',
-        data: [previousAudit.materialUsage, currentAudit.materialUsage],
+        data: [previousAudit.materialsUsage, currentAudit.materialsUsage],
         backgroundColor: '#81c784',
       },
       {
@@ -112,17 +109,80 @@ function ComparisonPage() {
             return value.toLocaleString();
           },
           min: 1,
-          maxTicksLimit: 6,  // Limitar la cantidad de ticks en el eje Y
-          padding: 10,       // Añadir espaciado extra para mayor legibilidad
+          maxTicksLimit: 6,
+          padding: 10,
         },
       },
     },
   };
 
+  const compareAudits = () => {
+    const parameters = {
+      co2: 'CO2 Emitido',
+      energy: 'Consumo de Energía',
+      waste: 'Residuos Generados',
+      waterUsage: 'Uso de Agua',
+      materialsUsage: 'Uso de Materiales',
+      ghgEmissions: 'Emisiones GHG',
+      renewableEnergy: 'Porcentaje de Energía Renovable',
+    };
+
+    const limits = {
+      co2: 1000,
+      energy: 50000,
+      waste: 10000,
+      waterUsage: 500000,
+      materialsUsage: 1000,
+      ghgEmissions: 1500,
+      renewableEnergy: 35, // Para el porcentaje de energía renovable
+    };
+
+    return Object.keys(parameters).map(param => {
+      const previous = previousAudit[param];
+      const current = currentAudit[param];
+      const diff = current - previous;
+
+      // Determinar si la auditoría actual pasa o no el límite
+      const exceedsLimit = current > limits[param];
+
+      // Definir el color de la diferencia: verde si pasa, rojo si excede
+      const color = exceedsLimit ? 'text-red-600' : 'text-green-600';
+
+      // Agregar símbolo de aumento o disminución
+      const symbol = diff > 0 ? '↑' : diff < 0 ? '↓' : '';
+
+      return (
+        <tr key={param}>
+          <td className="border px-4 py-2">{parameters[param]}</td>
+          <td className="border px-4 py-2">{previous}</td>
+          <td className="border px-4 py-2">{current}</td>
+          <td className={`border px-4 py-2 ${color}`}>
+            {Math.abs(diff)} {symbol && `${symbol}`}
+          </td>
+        </tr>
+      );
+    });
+  };
+
   return (
     <div>
-      <h2 className="text-2xl font-bold mb-4">Comparación de Auditorías</h2>
-      <Chart type="bar" data={data} options={options} className='' />
+      <h2 className="text-3xl font-bold mb-6 text-gray-800">Comparación de Auditorías</h2>
+      <Chart type="bar" data={data} options={options} className="mb-6" />
+      
+      <h3 className="text-xl font-semibold mb-4">Diferencias en los parámetros</h3>
+      <table className="min-w-full border-collapse">
+        <thead>
+          <tr>
+            <th className="border px-4 py-2">Parámetro</th>
+            <th className="border px-4 py-2">Auditoría Anterior</th>
+            <th className="border px-4 py-2">Auditoría Actual</th>
+            <th className="border px-4 py-2">Diferencia</th>
+          </tr>
+        </thead>
+        <tbody>
+          {compareAudits()}
+        </tbody>
+      </table>
     </div>
   );
 }
