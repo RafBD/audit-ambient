@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import 'primeicons/primeicons.css'; // Importa los íconos de PrimeIcons
-import logo from '../assets/img/logo.png'
+import logo from '../assets/img/logoGV.png'
 
 function Sidebar() {
   const [isOpen, setIsOpen] = useState(true); // Estado para controlar la apertura del sidebar
@@ -26,6 +26,14 @@ function Sidebar() {
 
       <nav>
         <ul className='flex flex-col gap-2'>
+        <li className="flex items-center p-4 text-center hover:bg-[#37734d]">
+            <Link to="/homepage" className={`flex items-center ${isOpen ? 'justify-start' : 'justify-center'} w-full`}>
+              <i className={`pi pi-home ${isOpen ? 'mr-3' : ''} text-base`}></i>
+              <span className={`transition-all duration-300 ${isOpen ? 'opacity-100 h-auto' : 'opacity-0 h-0 overflow-hidden'} ease-in-out`}>
+                Inicio
+              </span>
+            </Link>
+          </li>
           <li className="flex items-center p-4 text-center hover:bg-[#37734d]">
             <Link to="/audit-form" className={`flex items-center ${isOpen ? 'justify-start' : 'justify-center'} w-full`}>
               <i className={`pi pi-pencil ${isOpen ? 'mr-3' : ''} text-base`}></i>

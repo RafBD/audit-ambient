@@ -1,6 +1,6 @@
 import jsPDF from 'jspdf';
 import 'jspdf-autotable';
-import logo from '../../assets/img/logo.png'; // Importa tu imagen local
+import logo from '../../assets/img/logoGV.png'; // Importa tu imagen local
 
 export function generateAuditPDF(currentAudit, auditResult) {
   if (!currentAudit) {
