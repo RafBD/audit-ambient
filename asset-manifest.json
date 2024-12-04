@@ -1,0 +1,30 @@
+{
+  "files": {
+    "main.css": "/audit-ambient/static/css/main.42779b1a.css",
+    "main.js": "/audit-ambient/static/js/main.5443f157.js",
+    "static/js/867.723bd332.chunk.js": "/audit-ambient/static/js/867.723bd332.chunk.js",
+    "static/js/239.beae9fb3.chunk.js": "/audit-ambient/static/js/239.beae9fb3.chunk.js",
+    "static/js/213.47a066d7.chunk.js": "/audit-ambient/static/js/213.47a066d7.chunk.js",
+    "static/js/732.156a9945.chunk.js": "/audit-ambient/static/js/732.156a9945.chunk.js",
+    "static/js/453.69a2ad03.chunk.js": "/audit-ambient/static/js/453.69a2ad03.chunk.js",
+    "static/media/hero-img.jpg": "/audit-ambient/static/media/hero-img.0a2ea27b3d280ac27199.jpg",
+    "static/media/primeicons.svg": "/audit-ambient/static/media/primeicons.6ed59f962963a4a73af2.svg",
+    "static/media/primeicons.eot": "/audit-ambient/static/media/primeicons.ff0c4cd79b2ffca2de54.eot",
+    "static/media/primeicons.woff": "/audit-ambient/static/media/primeicons.8931fda1930c3bd21e96.woff",
+    "static/media/primeicons.ttf": "/audit-ambient/static/media/primeicons.a5c2a53d1ff7a9ff5933.ttf",
+    "static/media/logoGV.png": "/audit-ambient/static/media/logoGV.1b9810f966163f62ce9f.png",
+    "static/media/primeicons.woff2": "/audit-ambient/static/media/primeicons.024b32cc7bf399b1a847.woff2",
+    "index.html": "/audit-ambient/index.html",
+    "main.42779b1a.css.map": "/audit-ambient/static/css/main.42779b1a.css.map",
+    "main.5443f157.js.map": "/audit-ambient/static/js/main.5443f157.js.map",
+    "867.723bd332.chunk.js.map": "/audit-ambient/static/js/867.723bd332.chunk.js.map",
+    "239.beae9fb3.chunk.js.map": "/audit-ambient/static/js/239.beae9fb3.chunk.js.map",
+    "213.47a066d7.chunk.js.map": "/audit-ambient/static/js/213.47a066d7.chunk.js.map",
+    "732.156a9945.chunk.js.map": "/audit-ambient/static/js/732.156a9945.chunk.js.map",
+    "453.69a2ad03.chunk.js.map": "/audit-ambient/static/js/453.69a2ad03.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.42779b1a.css",
+    "static/js/main.5443f157.js"
+  ]
+}
